@@ -189,7 +189,7 @@
       */
      getStarsByWalletAddress (address) {
          let self = this;
-         let stars = [];
+         let stars = Array();
          return new Promise((resolve, reject) => {
              self.chain.forEach(async (block) => {
                  
@@ -214,7 +214,7 @@
      validateChain() {
          let self = this;
          let errorLog = [];
-         return new Promise(async (resolve, reject) => {
+         return new Promise((resolve) => {
              self.chain.map(async (block, index) => {
                  
                  let blockIsValid = await block.validate();
