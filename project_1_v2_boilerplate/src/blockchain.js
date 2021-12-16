@@ -70,9 +70,10 @@
              
              block.time = new Date().getTime().toString().slice(0, -3);
              
-             block.hash = SHA256(JSON.stringify(block)).toString();
-             
              block.height = self.chain.length;
+             
+             block.hash = SHA256(JSON.stringify(block)).toString();
+            
              let errors = await self.validateChain();
              if (errors.length > 0) {
                  reject(new Error('Chain is not valid'));
